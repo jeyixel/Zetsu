@@ -1,0 +1,14 @@
+# Environments
+venv/
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Mac OS (Just in case)
+.DS_Store
+
+# Vector Database local storage (So you don't commit gigabytes of vector data)
+chroma_db/
