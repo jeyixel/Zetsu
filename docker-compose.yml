@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: zetsu_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_storage:/root/.ollama
+    networks:
+      - zetsu_network
+
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: zetsu_chroma
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_storage:/chroma/chroma
+    networks:
+      - zetsu_network
+
+volumes:
+  ollama_storage:
+  chroma_storage:
+
+networks:
+  zetsu_network:
+    driver: bridge
